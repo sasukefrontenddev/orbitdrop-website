@@ -30,7 +30,7 @@ export function Header() {
 
 const footerGroups = [
   { title: "Product", links: [["Features", "/#features"], ["Download", "/#download"], ["Release notes", "/releases"], ["System requirements", "/requirements"]] },
-  { title: "Resources", links: [["Help center", "/help"], ["Getting started", "/help#getting-started"], ["Verify a download", "/verify"], ["Checksums", "/downloads/SHA256SUMS.txt"]] },
+  { title: "Resources", links: [["Help center", "/help"], ["Getting started", "/help#getting-started"], ["Verify a download", "/verify"], ["Checksums", "/checksums"]] },
   { title: "Trust", links: [["Privacy", "/privacy"], ["Security", "/security"], ["Terms", "/terms"], ["Offline architecture", "/security#architecture"]] },
 ];
 

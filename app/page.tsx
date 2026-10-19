@@ -61,7 +61,7 @@ export default function Home() {
                 <ToolIcon name={action.name} /><b>{action.name}</b>
               </span>
             ))}
-            <div className="radial-core"><Image src="/orbitdrop-logo.png" alt="" width={40} height={40} unoptimized /><strong>project-brief</strong><small>HOLD · GLIDE · RELEASE</small></div>
+            <div className="radial-core"><span className="core-logo"><Image src="/orbitdrop-logo.png" alt="" width={64} height={64} unoptimized /></span><strong>project-brief</strong><small>HOLD · GLIDE · RELEASE</small></div>
           </div>
           <div className="visual-status"><span className="status-dot" /><b>Runs on your device</b><small>Nothing uploaded</small></div>
           <div className="cursor-chip">Right-click <span>↗</span></div>
@@ -142,10 +142,10 @@ export default function Home() {
         <article><div className="os-icon windows"><WindowsIcon /></div><div><h3>OrbitDrop for Windows</h3><p>Windows 10 or Windows 11</p><small>64-bit · Self-contained executable</small></div></article>
       </section>
 
-      <section className="faq-section shell">
+      <section className="faq-section shell" id="faq">
         <div className="faq-heading"><span className="kicker">Good to know</span><h2>Questions, answered plainly.</h2><a href="/help">Visit the help center <ArrowIcon /></a></div>
         <div className="faq-list">
-          {faqs.map(([question, answer]) => <details key={question}><summary>{question}<span>+</span></summary><p>{answer}</p></details>)}
+          {faqs.map(([question, answer], index) => <details key={question}><summary><span className="faq-question"><i>{String(index + 1).padStart(2, "0")}</i>{question}</span><span className="faq-toggle">+</span></summary><p>{answer}</p></details>)}
         </div>
       </section>
 

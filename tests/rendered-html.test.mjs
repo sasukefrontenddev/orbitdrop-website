@@ -30,17 +30,27 @@ test("renders the privacy-first OrbitDrop download page", async () => {
   assert.match(html, /href="\/releases"/);
   assert.match(html, /href="\/requirements"/);
   assert.match(html, /href="\/verify"/);
+  assert.match(html, /href="\/checksums"/);
   assert.match(html, /href="\/terms"/);
   assert.doesNotMatch(html, /codex-preview|react-loading-skeleton/i);
 });
 
 test("renders every trust and support page", async () => {
-  const routes = ["/privacy", "/security", "/help", "/releases", "/requirements", "/verify", "/terms"];
+  const routes = ["/privacy", "/security", "/help", "/releases", "/requirements", "/verify", "/checksums", "/terms"];
   for (const route of routes) {
     const response = await render(route);
     assert.equal(response.status, 200, `${route} should render`);
     assert.match(response.headers.get("content-type") ?? "", /^text\/html\b/i);
   }
+});
+
+test("renders the official checksum directory", async () => {
+  const response = await render("/checksums");
+  const html = await response.text();
+  assert.match(html, /Official checksums/);
+  assert.match(html, /bc4856b4d20cc30375d0826a222288b5989e372ceb19d15fef64a6893145bc34/);
+  assert.match(html, /345e4efb5f1e529908aa8e300a21e6201f4ec54dc1a941b77306eb87673b87d8/);
+  assert.match(html, /Download SHA256SUMS\.txt/);
 });
 
 test("contains no storage, analytics, upload, or tracking code", async () => {
