@@ -4,6 +4,7 @@ import Image from "next/image";
 import { DownloadChooser } from "./DownloadChooser";
 import { AppleIcon, ArrowIcon, CheckIcon, ShieldIcon, ToolIcon, WindowsIcon } from "./Icons";
 import { Footer, Header } from "./SiteChrome";
+import { getLatestRelease } from "../lib/release";
 
 export const metadata: Metadata = {
   title: "OrbitDrop — Private desktop file tools",
@@ -33,7 +34,8 @@ const faqs = [
   ["Which computers are supported?", "OrbitDrop supports macOS 13 or later on Apple Silicon and Intel, plus 64-bit Windows 10 and Windows 11."],
 ];
 
-export default function Home() {
+export default async function Home() {
+  const release = await getLatestRelease();
   return (
     <main>
       <Header />
@@ -43,7 +45,7 @@ export default function Home() {
           <div className="eyebrow"><span /> Private by architecture · Native by design</div>
           <h1>The fastest way from <em>file</em> to finished.</h1>
           <p className="hero-lede">Right-click any file and glide to the action you need. OrbitDrop converts, compresses, and edits directly on your desktop—without opening a website or uploading a thing.</p>
-          <DownloadChooser compact />
+          <DownloadChooser compact release={release} />
           <div className="trust-row" aria-label="Privacy promises">
             <span><CheckIcon /> 100% local processing</span>
             <span><CheckIcon /> No sign-up</span>
@@ -127,12 +129,12 @@ export default function Home() {
       <section className="download-section shell" id="download">
         <div className="download-panel">
           <div className="download-copy">
-            <span className="kicker">OrbitDrop 0.4.0 · Free download</span>
+            <span className="kicker">OrbitDrop {release.version} · Free download</span>
             <h2>Give your desktop a better right-click.</h2>
             <p>Choose your platform. Device detection happens only in your browser to suggest the correct version and is never transmitted or stored.</p>
             <div className="download-security"><ShieldIcon /><span><strong>Verified release</strong><small>SHA-256 checksums published for both installers</small></span></div>
           </div>
-          <DownloadChooser />
+          <DownloadChooser release={release} />
         </div>
       </section>
 

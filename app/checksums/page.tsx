@@ -2,20 +2,21 @@ import type { Metadata } from "next";
 import { AppleIcon, ShieldIcon, WindowsIcon } from "../Icons";
 import { Footer, Header } from "../SiteChrome";
 import { CopyChecksum } from "./CopyChecksum";
+import { getLatestRelease } from "../../lib/release";
 
-export const metadata: Metadata = { title: "Checksums — OrbitDrop", description: "Official SHA-256 checksums for OrbitDrop 0.4.0 downloads." };
+export const metadata: Metadata = { title: "Checksums — OrbitDrop", description: "Official SHA-256 checksums for the latest OrbitDrop downloads." };
 
-const releases = [
-  { platform: "macOS", file: "OrbitDrop-0.4.0-NATIVE-macOS-universal.zip", hash: "2c9eb8ce29cb1c681f628af8d3a00776c01403a2e4cf50a4fef6132254860f2e", Icon: AppleIcon },
-  { platform: "Windows", file: "OrbitDrop-0.4.0-NATIVE-Windows-x64.exe", hash: "e7f1f566372e8c8f57a88983c647b090077a9a8146d86b4f52a04cebc4d0a15f", Icon: WindowsIcon },
-];
-
-export default function ChecksumsPage() {
+export default async function ChecksumsPage() {
+  const release = await getLatestRelease();
+  const releases = [
+    { platform: "macOS", file: release.macos.file, hash: release.macos.sha256, Icon: AppleIcon },
+    { platform: "Windows", file: release.windows.file, hash: release.windows.sha256, Icon: WindowsIcon },
+  ];
   return <main>
     <Header />
     <section className="checksum-hero shell">
       <span className="checksum-shield"><ShieldIcon /></span>
-      <span className="kicker">Release integrity · Version 0.4.0</span>
+      <span className="kicker">Release integrity · Version {release.version}</span>
       <h1>Official checksums.</h1>
       <p>Compare the SHA-256 value of your download with the matching official value below. A perfect match confirms that the file has not changed.</p>
     </section>
@@ -28,7 +29,7 @@ export default function ChecksumsPage() {
       </article>)}
       <div className="checksum-foot">
         <p><span /> Plain-text access is still available for scripts and security tools.</p>
-        <a href="/downloads/SHA256SUMS.txt" download>Download SHA256SUMS.txt ↓</a>
+        <a href={release.checksumsUrl}>Download SHA256SUMS.txt ↓</a>
       </div>
     </section>
     <section className="checksum-help shell"><div><span className="kicker">Need help?</span><h2>Verify it step by step.</h2></div><p>The verification guide includes ready-to-copy commands for Terminal on macOS and PowerShell on Windows.</p><a href="/verify">Open verification guide →</a></section>

@@ -18,6 +18,8 @@ The website does not convert files. All conversion, compression, and image editi
 - No file uploads or conversion API
 - No browser storage
 - Platform detection runs only in browser memory
+- Latest release metadata comes from the public OrbitDrop GitHub repository and is briefly cached by the website
+- Installer links point directly to official GitHub release assets
 
 Automated tests guard these promises by checking the source for storage, tracking, uploads, and write requests.
 
@@ -45,7 +47,13 @@ npm run lint
 npm test
 ```
 
-`npm test` creates a production build, renders every public support route, verifies the checksum directory, and confirms the absence of tracking and persistence code.
+`npm test` creates the Sites production build, renders every public support route, verifies the checksum directory, and confirms the absence of tracking and persistence code. `npm run build:vercel` independently validates the Vercel production build.
+
+## Continuous delivery
+
+Every pull request and change to `main` runs linting, both production builds, dependency review, privacy tests, and rendering tests. Vercel deploys accepted `main` updates automatically, and a separate smoke test verifies the public pages and release downloads.
+
+The website reads the newest desktop version, download links, file sizes, and SHA-256 checksums from GitHub Releases. Once the native release workflow publishes a new version, the website begins serving it automatically without copying installers into this repository.
 
 ## Related project
 

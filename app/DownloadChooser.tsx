@@ -1,29 +1,10 @@
 "use client";
 
-import { useState, useSyncExternalStore } from "react";
+import { useSyncExternalStore } from "react";
 import { AppleIcon, DownloadIcon, WindowsIcon } from "./Icons";
+import type { OrbitDropRelease } from "../lib/release";
 
 type DesktopOS = "mac" | "windows" | "other";
-type DownloadState = "idle" | "downloading" | "error";
-
-const macRelease = {
-  label: "Download for macOS",
-  detail: "macOS 13+ · Universal · 359 KB",
-  href: "/downloads/OrbitDrop-0.4.0-NATIVE-macOS-universal.zip",
-};
-
-const windowsRelease = {
-  label: "Download for Windows",
-  detail: "Windows 10/11 · x64 · 74 MB",
-};
-
-const windowsParts = [
-  "/downloads/windows/OrbitDrop.exe.part-000",
-  "/downloads/windows/OrbitDrop.exe.part-001",
-  "/downloads/windows/OrbitDrop.exe.part-002",
-  "/downloads/windows/OrbitDrop.exe.part-003",
-];
-
 function detectOS(): DesktopOS {
   const label = `${navigator.platform || ""} ${navigator.userAgent || ""}`.toLowerCase();
   if (label.includes("mac")) return "mac";
@@ -34,56 +15,26 @@ function detectOS(): DesktopOS {
 const subscribeToDeviceLabel = () => () => {};
 const serverDeviceLabel = (): DesktopOS => "other";
 
-export function DownloadChooser({ compact = false }: { compact?: boolean }) {
+export function DownloadChooser({ compact = false, release }: { compact?: boolean; release: OrbitDropRelease }) {
   const os = useSyncExternalStore(subscribeToDeviceLabel, detectOS, serverDeviceLabel);
-  const [downloadState, setDownloadState] = useState<DownloadState>("idle");
-  const [progress, setProgress] = useState(0);
-
-  async function downloadWindows() {
-    if (downloadState === "downloading") return;
-    setDownloadState("downloading");
-    setProgress(0);
-    try {
-      const pieces: Blob[] = [];
-      for (let index = 0; index < windowsParts.length; index += 1) {
-        const response = await fetch(windowsParts[index], { cache: "no-store" });
-        if (!response.ok) throw new Error("A download piece was unavailable.");
-        pieces.push(await response.blob());
-        setProgress(Math.round(((index + 1) / windowsParts.length) * 100));
-      }
-      const objectURL = URL.createObjectURL(new Blob(pieces, { type: "application/vnd.microsoft.portable-executable" }));
-      const link = document.createElement("a");
-      link.href = objectURL;
-      link.download = "OrbitDrop-0.4.0-NATIVE-Windows-x64.exe";
-      link.click();
-      window.setTimeout(() => URL.revokeObjectURL(objectURL), 1500);
-      setDownloadState("idle");
-    } catch {
-      setDownloadState("error");
-    }
-  }
-
-  const windowsLabel = downloadState === "downloading"
-    ? `Preparing Windows download… ${progress}%`
-    : downloadState === "error"
-      ? "Retry Windows download"
-      : windowsRelease.label;
+  const macDetail = `macOS 13+ · Universal · ${Math.max(1, Math.round(release.macos.bytes / 1024))} KB`;
+  const windowsDetail = `Windows 10/11 · x64 · ${Math.round(release.windows.bytes / (1024 * 1024))} MB`;
 
   if (compact) {
     if (os === "windows") {
       return (
         <div className="compact-downloads">
-          <button className="primary-button" type="button" onClick={downloadWindows} disabled={downloadState === "downloading"}>
-            <WindowsIcon />{windowsLabel}<DownloadIcon />
-          </button>
+          <a className="primary-button" href={release.windows.url}>
+            <WindowsIcon />Download for Windows<DownloadIcon />
+          </a>
           <a className="text-link" href="#download">See both versions <span>→</span></a>
         </div>
       );
     }
     return (
       <div className="compact-downloads">
-        <a className="primary-button" href={macRelease.href} download>
-          <AppleIcon />{os === "mac" ? macRelease.label : "Download OrbitDrop"}<DownloadIcon />
+        <a className="primary-button" href={release.macos.url}>
+          <AppleIcon />{os === "mac" ? "Download for macOS" : "Download OrbitDrop"}<DownloadIcon />
         </a>
         <a className="text-link" href="#download">See both versions <span>→</span></a>
       </div>
@@ -92,19 +43,19 @@ export function DownloadChooser({ compact = false }: { compact?: boolean }) {
 
   return (
     <div className="release-list">
-      <a className={`release-card ${os === "mac" ? "recommended" : ""}`} href={macRelease.href} download>
+      <a className={`release-card ${os === "mac" ? "recommended" : ""}`} href={release.macos.url}>
         <span className="release-icon" aria-hidden="true"><AppleIcon /></span>
-        <span><strong>{macRelease.label}</strong><small>{macRelease.detail}</small></span>
+        <span><strong>Download for macOS</strong><small>{macDetail}</small></span>
         {os === "mac" && <em>Recommended</em>}
         <DownloadIcon />
       </a>
-      <button className={`release-card ${os === "windows" ? "recommended" : ""}`} type="button" onClick={downloadWindows} disabled={downloadState === "downloading"}>
+      <a className={`release-card ${os === "windows" ? "recommended" : ""}`} href={release.windows.url}>
         <span className="release-icon" aria-hidden="true"><WindowsIcon /></span>
-        <span><strong>{windowsLabel}</strong><small>{windowsRelease.detail}</small></span>
+        <span><strong>Download for Windows</strong><small>{windowsDetail}</small></span>
         {os === "windows" && <em>Recommended</em>}
         <DownloadIcon />
-      </button>
-      <p className="detection-note"><span aria-hidden="true">●</span> Device detection and Windows file assembly happen only in browser memory. Nothing is transmitted or saved by this site.</p>
+      </a>
+      <p className="detection-note"><span aria-hidden="true">●</span> Device detection happens only in your browser. Downloads come directly from the official GitHub release and this site stores nothing.</p>
     </div>
   );
 }

@@ -1,6 +1,8 @@
 @import "tailwindcss";
 
 :root {
+  --font-manrope: Inter, "SF Pro Display", "Segoe UI", system-ui, sans-serif;
+  --font-space-mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
   --ink: #171428;
   --ink-2: #242039;
   --paper: #090711;
