@@ -2,7 +2,7 @@
 
 The public, privacy-first download and documentation website for [OrbitDrop](https://github.com/sasukefrontenddev/orbitdrop), a native macOS and Windows file utility.
 
-**Live site:** [orbitdrop-private-file-tools.newcivet16.chatgpt.site](https://orbitdrop-private-file-tools.newcivet16.chatgpt.site)
+**Live site:** [orbitdropapp.vercel.app](https://orbitdropapp.vercel.app)
 
 ## Purpose
 
