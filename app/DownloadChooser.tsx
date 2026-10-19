@@ -1,21 +1,20 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState, useSyncExternalStore } from "react";
+import { AppleIcon, DownloadIcon, WindowsIcon } from "./Icons";
 
 type DesktopOS = "mac" | "windows" | "other";
 type DownloadState = "idle" | "downloading" | "error";
 
 const macRelease = {
   label: "Download for macOS",
-  detail: "macOS 13+ · Apple Silicon + Intel · 344 KB",
+  detail: "macOS 13+ · Universal · 344 KB",
   href: "/downloads/OrbitDrop-0.3.0-NATIVE-macOS-universal.zip",
-  icon: "●",
 };
 
 const windowsRelease = {
   label: "Download for Windows",
-  detail: "Windows 10/11 · 64-bit · 74 MB",
-  icon: "⊞",
+  detail: "Windows 10/11 · x64 · 74 MB",
 };
 
 const windowsParts = [
@@ -32,12 +31,13 @@ function detectOS(): DesktopOS {
   return "other";
 }
 
+const subscribeToDeviceLabel = () => () => {};
+const serverDeviceLabel = (): DesktopOS => "other";
+
 export function DownloadChooser({ compact = false }: { compact?: boolean }) {
-  const [os, setOS] = useState<DesktopOS>("other");
+  const os = useSyncExternalStore(subscribeToDeviceLabel, detectOS, serverDeviceLabel);
   const [downloadState, setDownloadState] = useState<DownloadState>("idle");
   const [progress, setProgress] = useState(0);
-
-  useEffect(() => setOS(detectOS()), []);
 
   async function downloadWindows() {
     if (downloadState === "downloading") return;
@@ -74,18 +74,18 @@ export function DownloadChooser({ compact = false }: { compact?: boolean }) {
       return (
         <div className="compact-downloads">
           <button className="primary-button" type="button" onClick={downloadWindows} disabled={downloadState === "downloading"}>
-            <span aria-hidden="true">{windowsRelease.icon}</span>{windowsLabel}<b aria-hidden="true">↓</b>
+            <WindowsIcon />{windowsLabel}<DownloadIcon />
           </button>
-          <a className="text-link" href="#download">See both versions →</a>
+          <a className="text-link" href="#download">See both versions <span>→</span></a>
         </div>
       );
     }
     return (
       <div className="compact-downloads">
         <a className="primary-button" href={macRelease.href} download>
-          <span aria-hidden="true">{macRelease.icon}</span>{os === "mac" ? macRelease.label : "Download OrbitDrop"}<b aria-hidden="true">↓</b>
+          <AppleIcon />{os === "mac" ? macRelease.label : "Download OrbitDrop"}<DownloadIcon />
         </a>
-        <a className="text-link" href="#download">See both versions →</a>
+        <a className="text-link" href="#download">See both versions <span>→</span></a>
       </div>
     );
   }
@@ -93,18 +93,18 @@ export function DownloadChooser({ compact = false }: { compact?: boolean }) {
   return (
     <div className="release-list">
       <a className={`release-card ${os === "mac" ? "recommended" : ""}`} href={macRelease.href} download>
-        <span className="release-icon" aria-hidden="true">{macRelease.icon}</span>
+        <span className="release-icon" aria-hidden="true"><AppleIcon /></span>
         <span><strong>{macRelease.label}</strong><small>{macRelease.detail}</small></span>
         {os === "mac" && <em>Recommended</em>}
-        <b aria-hidden="true">↓</b>
+        <DownloadIcon />
       </a>
       <button className={`release-card ${os === "windows" ? "recommended" : ""}`} type="button" onClick={downloadWindows} disabled={downloadState === "downloading"}>
-        <span className="release-icon" aria-hidden="true">{windowsRelease.icon}</span>
+        <span className="release-icon" aria-hidden="true"><WindowsIcon /></span>
         <span><strong>{windowsLabel}</strong><small>{windowsRelease.detail}</small></span>
         {os === "windows" && <em>Recommended</em>}
-        <b aria-hidden="true">↓</b>
+        <DownloadIcon />
       </button>
-      <p className="detection-note">Device detection and Windows file assembly happen only in browser memory. Nothing is transmitted or saved by this site.</p>
+      <p className="detection-note"><span aria-hidden="true">●</span> Device detection and Windows file assembly happen only in browser memory. Nothing is transmitted or saved by this site.</p>
     </div>
   );
 }
