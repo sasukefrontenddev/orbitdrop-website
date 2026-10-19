@@ -8,8 +8,8 @@ type DownloadState = "idle" | "downloading" | "error";
 
 const macRelease = {
   label: "Download for macOS",
-  detail: "macOS 13+ · Universal · 344 KB",
-  href: "/downloads/OrbitDrop-0.3.0-NATIVE-macOS-universal.zip",
+  detail: "macOS 13+ · Universal · 359 KB",
+  href: "/downloads/OrbitDrop-0.4.0-NATIVE-macOS-universal.zip",
 };
 
 const windowsRelease = {
@@ -54,7 +54,7 @@ export function DownloadChooser({ compact = false }: { compact?: boolean }) {
       const objectURL = URL.createObjectURL(new Blob(pieces, { type: "application/vnd.microsoft.portable-executable" }));
       const link = document.createElement("a");
       link.href = objectURL;
-      link.download = "OrbitDrop-0.3.0-NATIVE-Windows-x64.exe";
+      link.download = "OrbitDrop-0.4.0-NATIVE-Windows-x64.exe";
       link.click();
       window.setTimeout(() => URL.revokeObjectURL(objectURL), 1500);
       setDownloadState("idle");

@@ -22,7 +22,7 @@ test("renders the privacy-first OrbitDrop download page", async () => {
   assert.match(html, /100% local processing/);
   assert.match(html, /Nothing uploaded/);
   assert.match(html, /No sign-up/);
-  assert.match(html, /OrbitDrop-0\.3\.0-NATIVE-macOS-universal\.zip/);
+  assert.match(html, /OrbitDrop-0\.4\.0-NATIVE-macOS-universal\.zip/);
   assert.match(html, /Download for Windows/);
   assert.match(html, /href="\/privacy"/);
   assert.match(html, /href="\/security"/);
@@ -48,8 +48,8 @@ test("renders the official checksum directory", async () => {
   const response = await render("/checksums");
   const html = await response.text();
   assert.match(html, /Official checksums/);
-  assert.match(html, /bc4856b4d20cc30375d0826a222288b5989e372ceb19d15fef64a6893145bc34/);
-  assert.match(html, /345e4efb5f1e529908aa8e300a21e6201f4ec54dc1a941b77306eb87673b87d8/);
+  assert.match(html, /2c9eb8ce29cb1c681f628af8d3a00776c01403a2e4cf50a4fef6132254860f2e/);
+  assert.match(html, /e7f1f566372e8c8f57a88983c647b090077a9a8146d86b4f52a04cebc4d0a15f/);
   assert.match(html, /Download SHA256SUMS\.txt/);
 });
 

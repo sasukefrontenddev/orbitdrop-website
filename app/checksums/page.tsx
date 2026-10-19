@@ -3,11 +3,11 @@ import { AppleIcon, ShieldIcon, WindowsIcon } from "../Icons";
 import { Footer, Header } from "../SiteChrome";
 import { CopyChecksum } from "./CopyChecksum";
 
-export const metadata: Metadata = { title: "Checksums — OrbitDrop", description: "Official SHA-256 checksums for OrbitDrop 0.3.0 downloads." };
+export const metadata: Metadata = { title: "Checksums — OrbitDrop", description: "Official SHA-256 checksums for OrbitDrop 0.4.0 downloads." };
 
 const releases = [
-  { platform: "macOS", file: "OrbitDrop-0.3.0-NATIVE-macOS-universal.zip", hash: "bc4856b4d20cc30375d0826a222288b5989e372ceb19d15fef64a6893145bc34", Icon: AppleIcon },
-  { platform: "Windows", file: "OrbitDrop-0.3.0-NATIVE-Windows-x64.exe", hash: "345e4efb5f1e529908aa8e300a21e6201f4ec54dc1a941b77306eb87673b87d8", Icon: WindowsIcon },
+  { platform: "macOS", file: "OrbitDrop-0.4.0-NATIVE-macOS-universal.zip", hash: "2c9eb8ce29cb1c681f628af8d3a00776c01403a2e4cf50a4fef6132254860f2e", Icon: AppleIcon },
+  { platform: "Windows", file: "OrbitDrop-0.4.0-NATIVE-Windows-x64.exe", hash: "e7f1f566372e8c8f57a88983c647b090077a9a8146d86b4f52a04cebc4d0a15f", Icon: WindowsIcon },
 ];
 
 export default function ChecksumsPage() {
@@ -15,7 +15,7 @@ export default function ChecksumsPage() {
     <Header />
     <section className="checksum-hero shell">
       <span className="checksum-shield"><ShieldIcon /></span>
-      <span className="kicker">Release integrity · Version 0.3.0</span>
+      <span className="kicker">Release integrity · Version 0.4.0</span>
       <h1>Official checksums.</h1>
       <p>Compare the SHA-256 value of your download with the matching official value below. A perfect match confirms that the file has not changed.</p>
     </section>

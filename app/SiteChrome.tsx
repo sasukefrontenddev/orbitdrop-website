@@ -52,7 +52,7 @@ export function Footer() {
       </div>
       <div className="shell footer-bottom">
         <span>© 2026 OrbitDrop</span>
-        <span>Built for macOS and Windows · Version 0.3.0</span>
+        <span>Built for macOS and Windows · Version 0.4.0</span>
       </div>
     </footer>
   );

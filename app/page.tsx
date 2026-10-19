@@ -127,7 +127,7 @@ export default function Home() {
       <section className="download-section shell" id="download">
         <div className="download-panel">
           <div className="download-copy">
-            <span className="kicker">OrbitDrop 0.3.0 · Free download</span>
+            <span className="kicker">OrbitDrop 0.4.0 · Free download</span>
             <h2>Give your desktop a better right-click.</h2>
             <p>Choose your platform. Device detection happens only in your browser to suggest the correct version and is never transmitted or stored.</p>
             <div className="download-security"><ShieldIcon /><span><strong>Verified release</strong><small>SHA-256 checksums published for both installers</small></span></div>
