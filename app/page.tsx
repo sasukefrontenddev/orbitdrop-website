@@ -27,12 +27,12 @@ const actions = [
 ];
 
 const recentUpdates = [
+  { version: "0.6.0", label: "In-place updates", title: "Update once. Keep moving.", detail: "Install Update now verifies the release, replaces the current app, reopens OrbitDrop, and cleans up automatically—without leaving another ZIP or executable in Downloads." },
+  { version: "0.6.0", label: "Safe rollback", title: "Protected from failed installs.", detail: "OrbitDrop keeps a temporary recovery copy while updating. If replacement fails, the working version is restored and reopened automatically." },
   { version: "0.5.0", label: "New interaction", title: "Your key. Your workflow.", detail: "Select files, hold your chosen trigger, move onto an action, and release. Space is the default, with F6–F12 and A–Z available from the app menu." },
   { version: "0.5.0", label: "Smoother control", title: "A wheel that follows your intent.", detail: "A short hold prevents accidental launches, pointer movement highlights actions live, releasing runs the choice, and Escape cancels cleanly." },
   { version: "0.4.1", label: "Stronger compression", title: "Meaningfully smaller output.", detail: "Shrink now adapts image quality and dimensions instead of making tiny pixel changes. Documents and folders use maximum-compression ZIP output." },
-  { version: "0.4", label: "Expanded toolkit", title: "Twelve local file actions.", detail: "Convert to PDF, PNG, JPG, TIFF, or BMP; create ZIPs and safe copies; compress, resize, rotate, flip, or turn images grayscale." },
   { version: "0.4.2", label: "Unified identity", title: "One official OrbitDrop brand.", detail: "The macOS app, Windows executable, website, download artwork, and installer assets now use the same official lime-and-violet logo." },
-  { version: "0.4.1", label: "Private updates", title: "Know when a release is ready.", detail: "Installed copies check the official public release feed and offer the new download without sending filenames, file data, accounts, or tracking IDs." },
 ];
 
 const faqs = [
@@ -41,7 +41,7 @@ const faqs = [
   ["Will OrbitDrop overwrite my originals?", "No. OrbitDrop creates a new output beside the original file, so the source stays intact."],
   ["Can it work without internet?", "Yes. After downloading the app, conversions, compression, and image edits run offline."],
   ["Can I choose the wheel shortcut?", "Yes. Space is the default, and you can choose Space, F6–F12, or any A–Z key from the OrbitDrop menu-bar or system-tray menu. The choice stays only on your computer."],
-  ["How will I know about updates?", "OrbitDrop privately checks its official GitHub release page and shows a prompt only when a newer version is available. No file data or tracking identifier is sent."],
+  ["How will I know about updates?", "OrbitDrop privately checks its official GitHub release page and shows a prompt only when a newer version is available. From version 0.6.0 onward, Install Update verifies and replaces the current app automatically—no separate download is left behind. No file data or tracking identifier is sent."],
   ["Which computers are supported?", "OrbitDrop supports macOS 13 or later on Apple Silicon and Intel, plus 64-bit Windows 10 and Windows 11."],
 ];
 
@@ -93,7 +93,7 @@ export default async function Home() {
       <section className="updates-section shell" id="whats-new">
         <div className="section-heading">
           <div><span className="kicker">Recently shipped</span><h2>OrbitDrop has changed for the better.</h2></div>
-          <p>The latest releases replace the old right-click gesture, strengthen compression, unify the product identity, and make future upgrades easier to discover.</p>
+          <p>The latest releases replace the old right-click gesture, strengthen compression, unify the product identity, and install future upgrades directly over the current app.</p>
         </div>
         <div className="updates-grid">
           {recentUpdates.map((update, index) => (
