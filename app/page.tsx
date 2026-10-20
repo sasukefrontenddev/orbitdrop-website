@@ -26,6 +26,15 @@ const actions = [
   { name: "Copy", detail: "Create a safe duplicate beside the source.", category: "Organize" },
 ];
 
+const recentUpdates = [
+  { version: "0.5.0", label: "New interaction", title: "Your key. Your workflow.", detail: "Select files, hold your chosen trigger, move onto an action, and release. Space is the default, with F6–F12 and A–Z available from the app menu." },
+  { version: "0.5.0", label: "Smoother control", title: "A wheel that follows your intent.", detail: "A short hold prevents accidental launches, pointer movement highlights actions live, releasing runs the choice, and Escape cancels cleanly." },
+  { version: "0.4.1", label: "Stronger compression", title: "Meaningfully smaller output.", detail: "Shrink now adapts image quality and dimensions instead of making tiny pixel changes. Documents and folders use maximum-compression ZIP output." },
+  { version: "0.4", label: "Expanded toolkit", title: "Twelve local file actions.", detail: "Convert to PDF, PNG, JPG, TIFF, or BMP; create ZIPs and safe copies; compress, resize, rotate, flip, or turn images grayscale." },
+  { version: "0.4.2", label: "Unified identity", title: "One official OrbitDrop brand.", detail: "The macOS app, Windows executable, website, download artwork, and installer assets now use the same official lime-and-violet logo." },
+  { version: "0.4.1", label: "Private updates", title: "Know when a release is ready.", detail: "Installed copies check the official public release feed and offer the new download without sending filenames, file data, accounts, or tracking IDs." },
+];
+
 const faqs = [
   ["Does OrbitDrop upload my files?", "No. File conversion and editing happen locally inside the desktop app. Your files never travel through this website or an OrbitDrop server."],
   ["Does the website track visitors?", "No. There are no analytics scripts, advertising pixels, accounts, cookies, or behavioral profiles. Device detection only selects a suggested download in your browser."],
@@ -79,6 +88,24 @@ export default async function Home() {
           <p><strong>2</strong><span>native platforms</span></p>
           <p><strong>∞</strong><span>offline use</span></p>
         </div>
+      </section>
+
+      <section className="updates-section shell" id="whats-new">
+        <div className="section-heading">
+          <div><span className="kicker">Recently shipped</span><h2>OrbitDrop has changed for the better.</h2></div>
+          <p>The latest releases replace the old right-click gesture, strengthen compression, unify the product identity, and make future upgrades easier to discover.</p>
+        </div>
+        <div className="updates-grid">
+          {recentUpdates.map((update, index) => (
+            <article className="update-card" key={`${update.version}-${update.title}`}>
+              <div className="update-meta"><span>{update.version}</span><small>{update.label}</small></div>
+              <h3>{update.title}</h3>
+              <p>{update.detail}</p>
+              <i>{String(index + 1).padStart(2, "0")}</i>
+            </article>
+          ))}
+        </div>
+        <a className="updates-link" href="/releases">Read the complete release history <ArrowIcon /></a>
       </section>
 
       <section className="features-section shell" id="features">
