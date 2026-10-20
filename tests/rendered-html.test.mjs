@@ -44,6 +44,12 @@ test("renders every trust and support page", async () => {
   }
 });
 
+test("exposes a non-identifying deployment health response", async () => {
+  const response = await render("/api/version");
+  assert.equal(response.status, 200);
+  assert.deepEqual(await response.json(), { commit: "local" });
+});
+
 test("renders the official checksum directory", async () => {
   const response = await render("/checksums");
   const html = await response.text();
