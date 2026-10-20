@@ -8,14 +8,14 @@ export async function generateMetadata(): Promise<Metadata> {
   const protocol = requestHeaders.get("x-forwarded-proto") ?? (host.startsWith("localhost") ? "http" : "https");
   const metadataBase = new URL(`${protocol}://${host}`);
   const description = "Hold your chosen key to convert, compress, and edit files locally on macOS and Windows. No uploads, accounts, cookies, analytics, or tracking.";
-  const image = new URL("/og-v050.png", metadataBase).toString();
+  const image = new URL("/og-v060.png", metadataBase).toString();
 
   return {
     metadataBase,
     title: "OrbitDrop — Private desktop file tools",
     description,
     icons: { icon: "/icon.png", apple: "/icon.png" },
-    openGraph: { title: "OrbitDrop", description, type: "website", images: [{ url: image, width: 1200, height: 630, alt: "OrbitDrop 0.5.0 — Hold. Move. Release. Private file tools for macOS and Windows." }] },
+    openGraph: { title: "OrbitDrop", description, type: "website", images: [{ url: image, width: 1200, height: 630, alt: "OrbitDrop 0.6.0 — verified in-place updates for private desktop file tools." }] },
     twitter: { card: "summary_large_image", title: "OrbitDrop", description, images: [image] },
   };
 }
