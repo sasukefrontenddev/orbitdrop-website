@@ -31,6 +31,7 @@ const faqs = [
   ["Does the website track visitors?", "No. There are no analytics scripts, advertising pixels, accounts, cookies, or behavioral profiles. Device detection only selects a suggested download in your browser."],
   ["Will OrbitDrop overwrite my originals?", "No. OrbitDrop creates a new output beside the original file, so the source stays intact."],
   ["Can it work without internet?", "Yes. After downloading the app, conversions, compression, and image edits run offline."],
+  ["Can I choose the wheel shortcut?", "Yes. Space is the default, and you can choose Space, F6–F12, or any A–Z key from the OrbitDrop menu-bar or system-tray menu. The choice stays only on your computer."],
   ["How will I know about updates?", "OrbitDrop privately checks its official GitHub release page and shows a prompt only when a newer version is available. No file data or tracking identifier is sent."],
   ["Which computers are supported?", "OrbitDrop supports macOS 13 or later on Apple Silicon and Intel, plus 64-bit Windows 10 and Windows 11."],
 ];
@@ -45,7 +46,7 @@ export default async function Home() {
         <div className="hero-copy">
           <div className="eyebrow"><span /> Private by architecture · Native by design</div>
           <h1>The fastest way from <em>file</em> to finished.</h1>
-          <p className="hero-lede">Hold right-click, glide to the action you need, and release. OrbitDrop converts, compresses, and edits directly on your desktop—without opening a website or uploading a thing.</p>
+          <p className="hero-lede">Select a file, hold your chosen key, move to the action you need, and release. OrbitDrop converts, compresses, and edits directly on your desktop—without opening a website or uploading a thing.</p>
           <DownloadChooser compact release={release} />
           <div className="trust-row" aria-label="Privacy promises">
             <span><CheckIcon /> 100% local processing</span>
@@ -64,10 +65,10 @@ export default async function Home() {
                 <ToolIcon name={action.name} /><b>{action.name}</b>
               </span>
             ))}
-            <div className="radial-core"><span className="core-logo"><Image src="/orbitdrop-logo.png" alt="" width={64} height={64} unoptimized /></span><strong>project-brief</strong><small>HOLD · GLIDE · RELEASE</small></div>
+            <div className="radial-core"><span className="core-logo"><Image src="/orbitdrop-logo.png" alt="" width={64} height={64} unoptimized /></span><strong>project-brief</strong><small>HOLD KEY · MOVE · RELEASE</small></div>
           </div>
           <div className="visual-status"><span className="status-dot" /><b>Runs on your device</b><small>Nothing uploaded</small></div>
-          <div className="cursor-chip">Right-click <span>↗</span></div>
+          <div className="cursor-chip">Hold Space <span>↗</span></div>
         </div>
       </section>
 
@@ -102,8 +103,8 @@ export default async function Home() {
           <div className="section-heading centered"><div><span className="kicker">Built around muscle memory</span><h2>Three seconds. No detour.</h2></div><p>OrbitDrop meets you in the file system, so the fastest route is also the most private one.</p></div>
           <div className="workflow-grid">
             <article><span className="step-number">01</span><div className="step-visual select-visual"><span className="mini-file"><ToolIcon name="pdf" /> report.docx</span><i /></div><h3>Select a file</h3><p>Stay in Finder or File Explorer. Choose the file you want to work with.</p></article>
-            <article><span className="step-number">02</span><div className="step-visual wheel-visual"><span /><span /><span /><i>+</i></div><h3>Hold right-click</h3><p>Keep the right mouse button held until the transparent command wheel appears.</p></article>
-            <article><span className="step-number">03</span><div className="step-visual result-visual"><span><CheckIcon /></span><b>report.pdf</b><small>Saved beside original</small></div><h3>Glide and release</h3><p>Move to an action while holding, then release. You can also release first and left-click an action.</p></article>
+            <article><span className="step-number">02</span><div className="step-visual wheel-visual"><span /><span /><span /><i>+</i></div><h3>Hold your key</h3><p>Hold Space—the default—or your chosen trigger key until the transparent command wheel appears.</p></article>
+            <article><span className="step-number">03</span><div className="step-visual result-visual"><span><CheckIcon /></span><b>report.pdf</b><small>Saved beside original</small></div><h3>Move and release</h3><p>Keep the key held, move the pointer onto an action, then release the key to run it.</p></article>
           </div>
         </div>
       </section>
@@ -131,7 +132,7 @@ export default async function Home() {
         <div className="download-panel">
           <div className="download-copy">
             <span className="kicker">OrbitDrop {release.version} · Free download</span>
-            <h2>Give your desktop a better right-click.</h2>
+            <h2>Give your desktop a faster file workflow.</h2>
             <p>Choose your platform. Device detection happens only in your browser to suggest the correct version and is never transmitted or stored.</p>
             <div className="download-security"><ShieldIcon /><span><strong>Verified release</strong><small>SHA-256 checksums published for both installers</small></span></div>
           </div>
