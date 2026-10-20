@@ -18,7 +18,7 @@ const actions = [
   { name: "TIFF", detail: "Export high-quality images for print workflows.", category: "Convert" },
   { name: "BMP", detail: "Create widely compatible bitmap files.", category: "Convert" },
   { name: "ZIP", detail: "Bundle files and folders into one archive.", category: "Organize" },
-  { name: "Shrink", detail: "Reduce file size while preserving usability.", category: "Optimize" },
+  { name: "Shrink", detail: "Adaptively target a substantially smaller, share-ready file.", category: "Optimize" },
   { name: "Resize", detail: "Scale an image to 50% in one gesture.", category: "Edit" },
   { name: "Rotate", detail: "Turn an image 90 degrees clockwise.", category: "Edit" },
   { name: "Flip", detail: "Mirror an image horizontally.", category: "Edit" },
@@ -44,7 +44,7 @@ export default async function Home() {
         <div className="hero-copy">
           <div className="eyebrow"><span /> Private by architecture · Native by design</div>
           <h1>The fastest way from <em>file</em> to finished.</h1>
-          <p className="hero-lede">Right-click any file and glide to the action you need. OrbitDrop converts, compresses, and edits directly on your desktop—without opening a website or uploading a thing.</p>
+          <p className="hero-lede">Hold right-click, glide to the action you need, and release. OrbitDrop converts, compresses, and edits directly on your desktop—without opening a website or uploading a thing.</p>
           <DownloadChooser compact release={release} />
           <div className="trust-row" aria-label="Privacy promises">
             <span><CheckIcon /> 100% local processing</span>
@@ -101,8 +101,8 @@ export default async function Home() {
           <div className="section-heading centered"><div><span className="kicker">Built around muscle memory</span><h2>Three seconds. No detour.</h2></div><p>OrbitDrop meets you in the file system, so the fastest route is also the most private one.</p></div>
           <div className="workflow-grid">
             <article><span className="step-number">01</span><div className="step-visual select-visual"><span className="mini-file"><ToolIcon name="pdf" /> report.docx</span><i /></div><h3>Select a file</h3><p>Stay in Finder or File Explorer. Choose the file you want to work with.</p></article>
-            <article><span className="step-number">02</span><div className="step-visual wheel-visual"><span /><span /><span /><i>+</i></div><h3>Open the wheel</h3><p>Right-click to reveal a transparent command wheel around your file.</p></article>
-            <article><span className="step-number">03</span><div className="step-visual result-visual"><span><CheckIcon /></span><b>report.pdf</b><small>Saved beside original</small></div><h3>Glide and release</h3><p>Choose an action. OrbitDrop creates the result locally, right beside the source.</p></article>
+            <article><span className="step-number">02</span><div className="step-visual wheel-visual"><span /><span /><span /><i>+</i></div><h3>Hold right-click</h3><p>Keep the right mouse button held until the transparent command wheel appears.</p></article>
+            <article><span className="step-number">03</span><div className="step-visual result-visual"><span><CheckIcon /></span><b>report.pdf</b><small>Saved beside original</small></div><h3>Glide and release</h3><p>Move to an action while holding, then release. You can also release first and left-click an action.</p></article>
           </div>
         </div>
       </section>
