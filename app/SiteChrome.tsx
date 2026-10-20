@@ -17,6 +17,7 @@ export function Header() {
       <nav className="nav shell" aria-label="Primary navigation">
         <Brand />
         <div className="nav-links">
+          <Link href="/#whats-new">What’s new</Link>
           <Link href="/#features">Features</Link>
           <Link href="/#how-it-works">How it works</Link>
           <Link href="/privacy">Privacy</Link>
@@ -29,7 +30,7 @@ export function Header() {
 }
 
 const footerGroups = [
-  { title: "Product", links: [["Features", "/#features"], ["Download", "/#download"], ["Release notes", "/releases"], ["System requirements", "/requirements"]] },
+  { title: "Product", links: [["What’s new", "/#whats-new"], ["Features", "/#features"], ["Download", "/#download"], ["Release notes", "/releases"], ["System requirements", "/requirements"]] },
   { title: "Resources", links: [["Help center", "/help"], ["Getting started", "/help#getting-started"], ["Verify a download", "/verify"], ["Checksums", "/checksums"]] },
   { title: "Trust", links: [["Privacy", "/privacy"], ["Security", "/security"], ["Terms", "/terms"], ["Offline architecture", "/security#architecture"]] },
 ];

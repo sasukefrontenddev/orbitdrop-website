@@ -22,6 +22,10 @@ test("renders the privacy-first OrbitDrop download page", async () => {
   assert.match(html, /100% local processing/);
   assert.match(html, /Nothing uploaded/);
   assert.match(html, /No sign-up/);
+  assert.match(html, /OrbitDrop has changed for the better/);
+  assert.match(html, /Your key\. Your workflow/);
+  assert.match(html, /Meaningfully smaller output/);
+  assert.match(html, /One official OrbitDrop brand/);
   assert.match(html, /github\.com\/sasukefrontenddev\/orbitdrop\/releases\/download\/v0\.5\.0\/OrbitDrop-0\.5\.0-macOS-universal\.zip/);
   assert.match(html, /Download for Windows/);
   assert.match(html, /href="\/privacy"/);
