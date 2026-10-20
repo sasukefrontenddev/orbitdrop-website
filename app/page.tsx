@@ -31,6 +31,7 @@ const faqs = [
   ["Does the website track visitors?", "No. There are no analytics scripts, advertising pixels, accounts, cookies, or behavioral profiles. Device detection only selects a suggested download in your browser."],
   ["Will OrbitDrop overwrite my originals?", "No. OrbitDrop creates a new output beside the original file, so the source stays intact."],
   ["Can it work without internet?", "Yes. After downloading the app, conversions, compression, and image edits run offline."],
+  ["How will I know about updates?", "OrbitDrop privately checks its official GitHub release page and shows a prompt only when a newer version is available. No file data or tracking identifier is sent."],
   ["Which computers are supported?", "OrbitDrop supports macOS 13 or later on Apple Silicon and Intel, plus 64-bit Windows 10 and Windows 11."],
 ];
 
