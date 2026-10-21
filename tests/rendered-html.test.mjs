@@ -23,10 +23,13 @@ test("renders the privacy-first OrbitDrop download page", async () => {
   assert.match(html, /Nothing uploaded/);
   assert.match(html, /No sign-up/);
   assert.match(html, /OrbitDrop has changed for the better/);
-  assert.match(html, /Your key\. Your workflow/);
+  assert.match(html, /Your keyboard\. No dropdown\./);
   assert.match(html, /Meaningfully smaller output/);
   assert.match(html, /One official OrbitDrop brand/);
-  assert.match(html, /github\.com\/sasukefrontenddev\/orbitdrop\/releases\/download\/v0\.6\.1\/OrbitDrop-0\.6\.1-macOS-universal\.zip/);
+  assert.match(html, /Finder keeps the file you selected/);
+  assert.match(html, /Recorded\. Intercepted\. Released\./);
+  assert.match(html, /orbitdrop-0\.7\.1-hotkey-demo\.gif/);
+  assert.match(html, /github\.com\/sasukefrontenddev\/orbitdrop\/releases\/download\/v0\.7\.1\/OrbitDrop-0\.7\.1-macOS-universal\.zip/);
   assert.match(html, /Download for Windows/);
   assert.match(html, /href="\/privacy"/);
   assert.match(html, /href="\/security"/);
@@ -58,10 +61,10 @@ test("renders the official checksum directory", async () => {
   const response = await render("/checksums");
   const html = await response.text();
   assert.match(html, /Official checksums/);
-  assert.match(html, /3f83242245f62eb3c08082f6d3e4a7d127006605afca979a86542dbfad3fa872/);
-  assert.match(html, /3f96f4d00f137932c770ddacb3665d060b6e071b6e9ca92e6875cbae080cdd75/);
+  assert.match(html, /2d942f57866e2bb1a853cdf7b03bca58c886b8a93f96864f57c24630bc7f3ec3/);
+  assert.match(html, /9762c53032091853c6b76bab53708f489f8d3827adebb0e5f3ed5ce212d3baee/);
   assert.match(html, /Download SHA256SUMS\.txt/);
-  assert.match(html, /github\.com\/sasukefrontenddev\/orbitdrop\/releases\/download\/v0\.6\.1\/SHA256SUMS\.txt/);
+  assert.match(html, /github\.com\/sasukefrontenddev\/orbitdrop\/releases\/download\/v0\.7\.1\/SHA256SUMS\.txt/);
 });
 
 test("contains no storage, analytics, upload, or tracking code", async () => {
