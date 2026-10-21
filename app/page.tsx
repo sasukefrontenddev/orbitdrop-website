@@ -27,9 +27,9 @@ const actions = [
 ];
 
 const recentUpdates = [
+  { version: "0.7.2", label: "Your key stays yours", title: "Tap normally. Hold for OrbitDrop.", detail: "A quick trigger-key press is replayed as the original key. Only a deliberate quarter-second hold opens the wheel, and other apps are never intercepted." },
   { version: "0.7.1", label: "True key interception", title: "Finder keeps the file you selected.", detail: "OrbitDrop consumes your trigger key before Finder can jump to another filename. Key-down, repeats, and key-up are intercepted for the complete hold gesture." },
   { version: "0.7.1", label: "Press-any-key recorder", title: "Your keyboard. No dropdown.", detail: "Choose Record trigger key and press the physical key you want—letters, numbers, punctuation, arrows, modifiers, Space, and function keys are supported." },
-  { version: "0.7.1", label: "Live keyboard status", title: "Know when macOS is ready.", detail: "The menu now shows the real Accessibility and interception state, includes repair guidance, and runs a harmless capture-and-suppress self-test." },
   { version: "0.6.0", label: "Safe rollback", title: "Protected from failed installs.", detail: "OrbitDrop keeps a temporary recovery copy while updating. If replacement fails, the working version is restored and reopened automatically." },
   { version: "0.4.1", label: "Stronger compression", title: "Meaningfully smaller output.", detail: "Shrink now adapts image quality and dimensions instead of making tiny pixel changes. Documents and folders use maximum-compression ZIP output." },
   { version: "0.4.2", label: "Unified identity", title: "One official OrbitDrop brand.", detail: "The macOS app, Windows executable, website, download artwork, and installer assets now use the same official lime-and-violet logo." },
@@ -40,7 +40,7 @@ const faqs = [
   ["Does the website track visitors?", "No. There are no analytics scripts, advertising pixels, accounts, cookies, or behavioral profiles. Device detection only selects a suggested download in your browser."],
   ["Will OrbitDrop overwrite my originals?", "No. OrbitDrop creates a new output beside the original file, so the source stays intact."],
   ["Can it work without internet?", "Yes. After downloading the app, conversions, compression, and image edits run offline."],
-  ["Can I choose the wheel shortcut?", "Yes. Space is the default. Choose Record trigger key, then press the physical key you want—there is no dropdown. Letters, numbers, punctuation, arrows, modifiers, Space, and function keys are supported. The choice stays only on your computer."],
+  ["Can I choose the wheel shortcut?", "Yes. Space is the default. Choose Record trigger key, then press the physical key you want—there is no dropdown. A quick tap remains a normal key press; only a deliberate hold opens OrbitDrop. Other apps receive the key normally, and modifier keys keep their normal behavior."],
   ["How will I know about updates?", "OrbitDrop privately checks its official GitHub release page and shows a prompt only when a newer version is available. Version 0.6.1 and later verify and replace the current app automatically—no separate download is left behind. No file data or tracking identifier is sent."],
   ["Which computers are supported?", "OrbitDrop supports macOS 13 or later on Apple Silicon and Intel, plus 64-bit Windows 10 and Windows 11."],
 ];
@@ -138,7 +138,7 @@ export default async function Home() {
           <div className="section-heading centered"><div><span className="kicker">Built around muscle memory</span><h2>Three seconds. No detour.</h2></div><p>OrbitDrop meets you in the file system, so the fastest route is also the most private one.</p></div>
           <div className="workflow-grid">
             <article><span className="step-number">01</span><div className="step-visual select-visual"><span className="mini-file"><ToolIcon name="pdf" /> report.docx</span><i /></div><h3>Select a file</h3><p>Stay in Finder or File Explorer. Choose the file you want to work with.</p></article>
-            <article><span className="step-number">02</span><div className="step-visual wheel-visual"><span /><span /><span /><i>+</i></div><h3>Hold your key</h3><p>Hold Space—the default—or record nearly any physical key. OrbitDrop consumes it before Finder or Explorer can act on it.</p></article>
+            <article><span className="step-number">02</span><div className="step-visual wheel-visual"><span /><span /><span /><i>+</i></div><h3>Hold your key</h3><p>Hold Space—the default—or record nearly any physical key. Tap it normally whenever you need the key; only a deliberate hold opens OrbitDrop.</p></article>
             <article><span className="step-number">03</span><div className="step-visual result-visual"><span><CheckIcon /></span><b>report.pdf</b><small>Saved beside original</small></div><h3>Move and release</h3><p>Keep the key held, move the pointer onto an action, then release the key to run it.</p></article>
           </div>
         </div>

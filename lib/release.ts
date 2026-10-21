@@ -18,22 +18,22 @@ export type OrbitDropRelease = {
 const repository = "sasukefrontenddev/orbitdrop";
 
 export const fallbackRelease: OrbitDropRelease = {
-  version: "0.7.1",
-  tag: "v0.7.1",
-  publishedAt: "2026-10-21T08:09:51Z",
-  releaseUrl: `https://github.com/${repository}/releases/tag/v0.7.1`,
-  checksumsUrl: `https://github.com/${repository}/releases/download/v0.7.1/SHA256SUMS.txt`,
+  version: "0.7.2",
+  tag: "v0.7.2",
+  publishedAt: "2026-10-21T13:19:22Z",
+  releaseUrl: `https://github.com/${repository}/releases/tag/v0.7.2`,
+  checksumsUrl: `https://github.com/${repository}/releases/download/v0.7.2/SHA256SUMS.txt`,
   macos: {
-    file: "OrbitDrop-0.7.1-macOS-universal.zip",
-    url: `https://github.com/${repository}/releases/download/v0.7.1/OrbitDrop-0.7.1-macOS-universal.zip`,
-    bytes: 1029161,
-    sha256: "2d942f57866e2bb1a853cdf7b03bca58c886b8a93f96864f57c24630bc7f3ec3",
+    file: "OrbitDrop-0.7.2-macOS-universal.zip",
+    url: `https://github.com/${repository}/releases/download/v0.7.2/OrbitDrop-0.7.2-macOS-universal.zip`,
+    bytes: 1031086,
+    sha256: "6700dc7757da047fd2a4b5af4ad54e0464d67fe6d1e0452ea064d0c439091f32",
   },
   windows: {
-    file: "OrbitDrop-0.7.1-Windows-x64.exe",
-    url: `https://github.com/${repository}/releases/download/v0.7.1/OrbitDrop-0.7.1-Windows-x64.exe`,
-    bytes: 78104968,
-    sha256: "9762c53032091853c6b76bab53708f489f8d3827adebb0e5f3ed5ce212d3baee",
+    file: "OrbitDrop-0.7.2-Windows-x64.exe",
+    url: `https://github.com/${repository}/releases/download/v0.7.2/OrbitDrop-0.7.2-Windows-x64.exe`,
+    bytes: 78105329,
+    sha256: "3c8c4743ae652ce396462d7d3d76f59c5f1a62e6fe8b9c65b66d99396243b9c8",
   },
 };
 
