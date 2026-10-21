@@ -14,7 +14,7 @@
   [![Privacy: no tracking](https://img.shields.io/badge/privacy-no%20tracking-cfff46?logo=shield&logoColor=111)](https://orbitdropapp.vercel.app/privacy)
 </div>
 
-![OrbitDrop 0.6.0 privacy-first desktop file tools website](public/og-v060.png)
+![OrbitDrop 0.6.1 privacy-first desktop file tools website](public/og-v061.png)
 
 ## A download site that does not handle your files
 

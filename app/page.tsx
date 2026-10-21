@@ -27,7 +27,7 @@ const actions = [
 ];
 
 const recentUpdates = [
-  { version: "0.6.0", label: "In-place updates", title: "Update once. Keep moving.", detail: "Install Update now verifies the release, replaces the current app, reopens OrbitDrop, and cleans up automatically—without leaving another ZIP or executable in Downloads." },
+  { version: "0.6.1", label: "Reliable Mac updates", title: "Update in place. Reopen smoothly.", detail: "The Mac updater now excludes downloaded archive metadata during replacement, then reopens OrbitDrop and removes temporary files without leaving another ZIP in Downloads." },
   { version: "0.6.0", label: "Safe rollback", title: "Protected from failed installs.", detail: "OrbitDrop keeps a temporary recovery copy while updating. If replacement fails, the working version is restored and reopened automatically." },
   { version: "0.5.0", label: "New interaction", title: "Your key. Your workflow.", detail: "Select files, hold your chosen trigger, move onto an action, and release. Space is the default, with F6–F12 and A–Z available from the app menu." },
   { version: "0.5.0", label: "Smoother control", title: "A wheel that follows your intent.", detail: "A short hold prevents accidental launches, pointer movement highlights actions live, releasing runs the choice, and Escape cancels cleanly." },
@@ -41,7 +41,7 @@ const faqs = [
   ["Will OrbitDrop overwrite my originals?", "No. OrbitDrop creates a new output beside the original file, so the source stays intact."],
   ["Can it work without internet?", "Yes. After downloading the app, conversions, compression, and image edits run offline."],
   ["Can I choose the wheel shortcut?", "Yes. Space is the default, and you can choose Space, F6–F12, or any A–Z key from the OrbitDrop menu-bar or system-tray menu. The choice stays only on your computer."],
-  ["How will I know about updates?", "OrbitDrop privately checks its official GitHub release page and shows a prompt only when a newer version is available. From version 0.6.0 onward, Install Update verifies and replaces the current app automatically—no separate download is left behind. No file data or tracking identifier is sent."],
+  ["How will I know about updates?", "OrbitDrop privately checks its official GitHub release page and shows a prompt only when a newer version is available. Version 0.6.1 and later verify and replace the current app automatically—no separate download is left behind. No file data or tracking identifier is sent."],
   ["Which computers are supported?", "OrbitDrop supports macOS 13 or later on Apple Silicon and Intel, plus 64-bit Windows 10 and Windows 11."],
 ];
 
