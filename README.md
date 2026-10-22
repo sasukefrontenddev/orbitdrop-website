@@ -178,5 +178,5 @@ This repository is source-available for inspection, security review, education, 
   <br /><br />
   <a href="https://orbitdropapp.vercel.app">Enter OrbitDrop</a>
   &nbsp;·&nbsp;
-  <a href="https://github.com/sasukefrontenddev/orbitdrop/stargazers">Star the native app</a>
+  <a href="https://github.com/sasukefrontenddev/orbitdrop">Star the native app</a>
 </div>
