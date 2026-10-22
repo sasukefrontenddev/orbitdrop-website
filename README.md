@@ -1,77 +1,110 @@
 <div align="center">
-  <img src="public/orbitdrop-logo.png" alt="OrbitDrop logo" width="112" />
+  <img src="public/readme-hero.svg" alt="The OrbitDrop website — a zero-tracking bridge to verified native downloads" width="100%" />
 
-  # OrbitDrop website
+  <br />
 
-  **The privacy-first download, documentation, and release-verification website for OrbitDrop.**
+  <img src="public/orbitdrop-logo.png" alt="OrbitDrop logo" width="88" />
 
-  [**Visit orbitdropapp.vercel.app**](https://orbitdropapp.vercel.app) · [Download the desktop app](https://orbitdropapp.vercel.app/#download) · [Desktop source](https://github.com/sasukefrontenddev/orbitdrop)
+  # The OrbitDrop launch site
+
+  ### A privacy-first front door for a privacy-first desktop tool.
+
+  It detects the visitor's platform, presents the verified native build, and explains every permission.
+  <br />
+  Then it gets out of the way. **It never receives a user's files.**
+
+  [![Visit the live site](https://img.shields.io/badge/OPEN_ORBITDROP.APP-D9FF57?style=for-the-badge&logo=vercel&logoColor=11131B)](https://orbitdropapp.vercel.app)
+  [![Get the native app](https://img.shields.io/badge/GET_THE_NATIVE_APP-8175FF?style=for-the-badge&logo=rocket&logoColor=white)](https://orbitdropapp.vercel.app/#download)
 
   [![Website checks](https://github.com/sasukefrontenddev/orbitdrop-website/actions/workflows/ci.yml/badge.svg)](https://github.com/sasukefrontenddev/orbitdrop-website/actions/workflows/ci.yml)
   [![Production smoke test](https://github.com/sasukefrontenddev/orbitdrop-website/actions/workflows/production-smoke.yml/badge.svg)](https://github.com/sasukefrontenddev/orbitdrop-website/actions/workflows/production-smoke.yml)
-  [![Next.js](https://img.shields.io/badge/Next.js-16-111?logo=nextdotjs)](https://nextjs.org/)
-  [![React](https://img.shields.io/badge/React-19-20232a?logo=react)](https://react.dev/)
-  [![Privacy: no tracking](https://img.shields.io/badge/privacy-no%20tracking-cfff46?logo=shield&logoColor=111)](https://orbitdropapp.vercel.app/privacy)
+  [![Next.js 16](https://img.shields.io/badge/Next.js-16-111?style=flat-square&logo=nextdotjs)](https://nextjs.org/)
+  [![React 19](https://img.shields.io/badge/React-19-20232A?style=flat-square&logo=react)](https://react.dev/)
+  [![Zero tracking](https://img.shields.io/badge/tracking-none-17152E?style=flat-square&logo=shield&logoColor=D9FF57)](https://orbitdropapp.vercel.app/privacy)
 </div>
 
-![OrbitDrop 0.7.1 privacy-first desktop file tools website](public/og-v071.png)
+---
 
-## A download site that does not handle your files
+## This is the launchpad—not the converter
 
-[OrbitDrop](https://github.com/sasukefrontenddev/orbitdrop) is a native macOS and Windows file converter, compressor, archive tool, and image editor. This repository contains its public product website—not a web converter.
+[OrbitDrop](https://github.com/sasukefrontenddev/orbitdrop) is a native macOS and Windows file converter, compressor, archive tool, and image editor. This repository contains the cinematic product site, documentation hub, download router, and integrity layer around it.
 
-Visitors can discover the product, choose the correct operating-system build, verify its checksum, read installation help, and review the privacy and security model. Actual file conversion and editing happen locally inside the desktop app.
+```mermaid
+flowchart LR
+    A[Visitor] --> B[OrbitDrop website]
+    B --> C{macOS or Windows?}
+    C --> D[Verified GitHub release]
+    D --> E[Native OrbitDrop app]
+    E --> F[Files processed locally]
+    F -. no upload path .-> B
+    style A fill:#201d38,stroke:#8175ff,color:#fff
+    style B fill:#201d38,stroke:#d9ff57,color:#fff
+    style C fill:#201d38,stroke:#8175ff,color:#fff
+    style D fill:#201d38,stroke:#d9ff57,color:#fff
+    style E fill:#201d38,stroke:#8175ff,color:#fff
+    style F fill:#201d38,stroke:#d9ff57,color:#fff
+```
 
-## What this website provides
+The site reads public release metadata. The download buttons point to official GitHub release assets. The desktop app does the actual work—on the user's computer.
 
-- A commercial, responsive product landing page
-- Platform-aware macOS and Windows download choices
-- Live release version, file-size, and SHA-256 metadata from GitHub Releases
-- A readable checksum directory and step-by-step verification guide
-- Installation help and system requirements
-- Product features, release notes, and update guidance
-- Plain-language privacy, security, and terms pages
-- Accessible dark-mode UI and responsive navigation
-- Release-specific Open Graph and social-sharing artwork
+## A product website with a pulse
 
-## Privacy by design
+<div align="center">
+  <img src="public/orbitdrop-0.7.1-hotkey-demo.gif" alt="OrbitDrop select, hold, glide, and release interaction" width="760" />
+  <br />
+  <sub>The product interaction shown honestly: on the desktop, over the selected file.</sub>
+</div>
+
+| ✦ Discover | ✦ Download | ✦ Verify | ✦ Understand |
+| :--- | :--- | :--- | :--- |
+| Commercial product story | Platform-aware choices | Live SHA-256 values | Permission explanations |
+| Responsive dark interface | Current version + size | Copyable terminal commands | Real workflow demo |
+| Accessible FAQ system | Official release assets | Release provenance | Troubleshooting paths |
+
+## The zero-data architecture
 
 The website deliberately has:
 
-- **no analytics or advertising scripts**;
-- **no accounts or user database**;
-- **no cookies or behavioral profiles**;
-- **no file upload or conversion API**;
-- **no local or session storage**; and
-- **no telemetry endpoint**.
+| `0` | `0` | `0` | `0` | `0` | `0` |
+| :---: | :---: | :---: | :---: | :---: | :---: |
+| analytics | ads | accounts | cookies | uploads | telemetry |
 
-Platform detection runs only in browser memory. Download links point directly to official GitHub release assets. The website briefly caches public release metadata so it can show the current version and checksums without storing visitor information.
+- No user database, behavioral profile, tracking pixel, or advertising script
+- No local storage, session storage, or hidden persistence layer
+- No file upload field, conversion endpoint, or write API
+- Platform detection exists only in browser memory
+- Public release metadata is briefly cached to make the site fast—not to identify visitors
 
-Automated tests scan the application source for tracking, storage, uploads, and write requests. See the live [privacy notice](https://orbitdropapp.vercel.app/privacy) and [security page](https://orbitdropapp.vercel.app/security).
+Automated tests scan the source for tracking, browser storage, uploads, and unexpected write requests. Read the live [privacy notice](https://orbitdropapp.vercel.app/privacy) and [security model](https://orbitdropapp.vercel.app/security).
 
-## Pages
+## Nine pages. One coherent promise.
 
-| Route | Purpose |
+| Route | The job it performs |
 | --- | --- |
-| [`/`](https://orbitdropapp.vercel.app) | Product overview, features, FAQ, and OS-aware downloads |
-| [`/help`](https://orbitdropapp.vercel.app/help) | Installation, hotkey workflow, updates, and troubleshooting |
-| [`/releases`](https://orbitdropapp.vercel.app/releases) | Version-by-version release history |
-| [`/checksums`](https://orbitdropapp.vercel.app/checksums) | Current official SHA-256 values |
-| [`/verify`](https://orbitdropapp.vercel.app/verify) | Checksum verification on macOS and Windows |
-| [`/requirements`](https://orbitdropapp.vercel.app/requirements) | Supported operating systems and hardware |
-| [`/privacy`](https://orbitdropapp.vercel.app/privacy) | Plain-language data-handling promise |
-| [`/security`](https://orbitdropapp.vercel.app/security) | Release integrity and safe-use guidance |
-| [`/terms`](https://orbitdropapp.vercel.app/terms) | Terms for the website and desktop software |
+| [**`/`**](https://orbitdropapp.vercel.app) | Product story, feature constellation, FAQ, and OS-aware download |
+| [**`/help`**](https://orbitdropapp.vercel.app/help) | Installation, trigger-key workflow, updates, and troubleshooting |
+| [**`/releases`**](https://orbitdropapp.vercel.app/releases) | Human-readable version history |
+| [**`/checksums`**](https://orbitdropapp.vercel.app/checksums) | Current official SHA-256 values |
+| [**`/verify`**](https://orbitdropapp.vercel.app/verify) | Exact verification commands for macOS and Windows |
+| [**`/requirements`**](https://orbitdropapp.vercel.app/requirements) | Supported systems, processors, and dependencies |
+| [**`/privacy`**](https://orbitdropapp.vercel.app/privacy) | Plain-language data-handling promise |
+| [**`/security`**](https://orbitdropapp.vercel.app/security) | Release integrity, provenance, and safe-use guidance |
+| [**`/terms`**](https://orbitdropapp.vercel.app/terms) | Terms for the website and desktop software |
 
-## Technology
+## The stack behind the glass
 
-- Next.js 16, React 19, and TypeScript
-- vinext and Vite for Cloudflare Workers-compatible output
-- Vercel production hosting at the official short URL
-- OpenAI Sites deployment metadata for the maintained mirror
-- GitHub Actions for linting, privacy tests, rendering tests, builds, dependency review, and production smoke tests
+```text
+Next.js 16 + React 19 + TypeScript
+             │
+             ├── Vercel production build
+             ├── vinext / Vite Sites build
+             ├── GitHub Releases metadata
+             └── GitHub Actions validation + production smoke test
+```
 
-## Run locally
+The repository maintains both the official Vercel deployment and the Sites-compatible build without introducing a second download source. Release information always resolves back to the native app's GitHub Releases.
+
+## Run the launchpad locally
 
 Requirements: Node.js 22.13 or later.
 
@@ -82,9 +115,9 @@ npm install
 npm run dev
 ```
 
-The development server prints the local URL when it is ready.
+The development server prints the local address when it is ready.
 
-## Validate a change
+## Try to break it before a visitor can
 
 ```bash
 npm run lint
@@ -92,31 +125,58 @@ npm test
 npm run build:vercel
 ```
 
-`npm test` builds the Sites version, renders every public support route, checks the official download and checksum content, and verifies the absence of tracking and persistence code. The independent Vercel build catches platform-specific deployment problems before merge.
+The test suite builds the Sites version, renders every public support route, checks the official download and checksum content, and verifies the absence of tracking and persistence code. The independent Vercel build catches production-specific failures before merge.
 
-## Continuous delivery
+## Continuous delivery, with a checksum at every handoff
 
-Every pull request and change to `main` runs the full website validation suite. Vercel deploys accepted `main` updates automatically, and a production smoke test confirms the public routes and current release downloads.
+```mermaid
+flowchart LR
+    A[Pull request] --> B[Lint + privacy tests]
+    B --> C[Render every route]
+    C --> D[Production build]
+    D --> E[Protected main]
+    E --> F[Vercel deploy]
+    F --> G[Production smoke test]
+    H[Native release] --> I[GitHub assets + SHA-256]
+    I --> F
+    style A fill:#201d38,stroke:#8175ff,color:#fff
+    style E fill:#201d38,stroke:#d9ff57,color:#fff
+    style F fill:#201d38,stroke:#8175ff,color:#fff
+    style G fill:#201d38,stroke:#d9ff57,color:#fff
+    style H fill:#201d38,stroke:#8175ff,color:#fff
+```
 
-The website reads the newest desktop version, asset names, download links, file sizes, and SHA-256 checksums from [OrbitDrop GitHub Releases](https://github.com/sasukefrontenddev/orbitdrop/releases). When the native release pipeline publishes a version, the website can serve it without committing a second installer copy to this repository.
+Every pull request and change to `main` runs the complete validation suite. Vercel deploys accepted changes automatically, then a production smoke test confirms the live routes and current release download.
 
-## Contributing and security
+When the native pipeline publishes a version, the site reads its asset names, URLs, sizes, and SHA-256 checksums automatically. There is no installer copy in this repository to become stale.
+
+## Guardrails for contributors
 
 - Read [CONTRIBUTING.md](CONTRIBUTING.md) before proposing a change.
-- Keep every product claim aligned with the latest native release.
+- Keep every product claim aligned with the latest [native release](https://github.com/sasukefrontenddev/orbitdrop/releases/latest).
 - Do not add analytics, cookies, tracking pixels, accounts, uploads, or user databases.
-- Report ordinary website bugs through [GitHub Issues](https://github.com/sasukefrontenddev/orbitdrop-website/issues).
-- Follow [SECURITY.md](SECURITY.md) for sensitive vulnerability reports.
+- Report ordinary bugs through [GitHub Issues](https://github.com/sasukefrontenddev/orbitdrop-website/issues).
+- Use [SECURITY.md](SECURITY.md) for sensitive vulnerability reports.
 
-## Related repository
+## Two repositories. One product.
 
-The native Swift/AppKit and C#/.NET desktop apps, build pipeline, release checksums, and downloadable installers live in the main [**OrbitDrop repository**](https://github.com/sasukefrontenddev/orbitdrop).
+| Repository | Responsibility |
+| --- | --- |
+| [**`orbitdrop`**](https://github.com/sasukefrontenddev/orbitdrop) | Native Swift/AppKit and C#/.NET apps, file engines, updater, platform builds, release artifacts |
+| [**`orbitdrop-website`**](https://github.com/sasukefrontenddev/orbitdrop-website) | Product experience, documentation, release discovery, checksums, download routing |
 
 ## License
 
 This repository is source-available for inspection, security review, education, and portfolio evaluation. It is **not open source**. Copying, modification, redistribution, sublicensing, sale, and derivative works require prior written permission. See [LICENSE](LICENSE).
 
+---
+
 <div align="center">
-  <strong>A privacy-first website for a privacy-first desktop tool.</strong><br />
+  <strong>A website that earns trust by asking for nothing.</strong>
+  <br />
   <sub>No uploads · No tracking · No cookies · No account</sub>
+  <br /><br />
+  <a href="https://orbitdropapp.vercel.app">Enter OrbitDrop</a>
+  &nbsp;·&nbsp;
+  <a href="https://github.com/sasukefrontenddev/orbitdrop">Star the native app</a>
 </div>
