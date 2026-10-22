@@ -1,0 +1,67 @@
+<svg width="1200" height="460" viewBox="0 0 1200 460" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">The OrbitDrop website — a zero-tracking bridge to verified native downloads</title>
+  <desc id="desc">An animated dark interface connects a verified GitHub release to macOS and Windows downloads without uploads, accounts, cookies, or tracking.</desc>
+  <defs>
+    <linearGradient id="bg" x1="32" y1="18" x2="1162" y2="448" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#17152E"/><stop offset=".52" stop-color="#0B0A16"/><stop offset="1" stop-color="#111827"/>
+    </linearGradient>
+    <linearGradient id="lime" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#D9FF57"/><stop offset="1" stop-color="#74F7C0"/></linearGradient>
+    <radialGradient id="aurora"><stop stop-color="#8175FF" stop-opacity=".33"/><stop offset="1" stop-color="#8175FF" stop-opacity="0"/></radialGradient>
+    <filter id="glow" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="7" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <pattern id="grid" width="34" height="34" patternUnits="userSpaceOnUse"><path d="M34 0H0V34" stroke="#8175FF" stroke-opacity=".065"/></pattern>
+    <style>
+      .flow { animation: flow 4.2s linear infinite; }
+      .float { animation: float 4s ease-in-out infinite; transform-box: fill-box; transform-origin:center; }
+      .pulse { animation: pulse 2.4s ease-in-out infinite; }
+      .blink { animation: blink 2.6s ease-in-out infinite; }
+      @keyframes flow { to { stroke-dashoffset: -78; } }
+      @keyframes float { 0%,100% { transform:translateY(-4px) } 50% { transform:translateY(5px) } }
+      @keyframes pulse { 0%,100% { opacity:.55 } 50% { opacity:1 } }
+      @keyframes blink { 0%,76%,100% { opacity:1 } 86% { opacity:.25 } }
+      @media (prefers-reduced-motion: reduce) { * { animation:none !important; } }
+    </style>
+  </defs>
+  <rect width="1200" height="460" rx="34" fill="url(#bg)"/>
+  <rect width="1200" height="460" rx="34" fill="url(#grid)"/>
+  <circle cx="940" cy="230" r="280" fill="url(#aurora)"/>
+
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">
+    <rect x="54" y="48" width="218" height="30" rx="15" fill="#D9FF57" fill-opacity=".11" stroke="#D9FF57" stroke-opacity=".33"/>
+    <circle cx="72" cy="63" r="4" fill="#D9FF57" class="blink"/>
+    <text x="86" y="68" fill="#D9FF57" font-size="13" font-weight="700" letter-spacing="1.2">ORBITDROP.APP / ONLINE</text>
+    <text x="54" y="139" fill="#F7F5FF" font-size="45" font-weight="800" letter-spacing="-1.6">A download site</text>
+    <text x="54" y="192" fill="#F7F5FF" font-size="45" font-weight="800" letter-spacing="-1.6">with nothing to hide.</text>
+    <text x="57" y="235" fill="#B9B4D0" font-size="16">VERIFIED RELEASES IN. NATIVE APPS OUT.</text>
+
+    <g transform="translate(54 279)">
+      <g><rect width="162" height="72" rx="16" fill="#201D38" stroke="#8175FF"/><text x="20" y="30" fill="#F7F5FF" font-size="14" font-weight="800">macOS</text><text x="20" y="51" fill="#9E98B8" font-size="11">UNIVERSAL BINARY</text><circle cx="137" cy="36" r="10" fill="#D9FF57" fill-opacity=".15"/><path d="M132 36l4 4 7-9" stroke="#D9FF57" stroke-width="2" fill="none"/></g>
+      <g transform="translate(178)"><rect width="162" height="72" rx="16" fill="#201D38" stroke="#8175FF"/><text x="20" y="30" fill="#F7F5FF" font-size="14" font-weight="800">Windows</text><text x="20" y="51" fill="#9E98B8" font-size="11">SELF-CONTAINED X64</text><circle cx="137" cy="36" r="10" fill="#D9FF57" fill-opacity=".15"/><path d="M132 36l4 4 7-9" stroke="#D9FF57" stroke-width="2" fill="none"/></g>
+    </g>
+    <text x="55" y="397" fill="#8983A5" font-size="12">0 COOKIES  ·  0 ACCOUNTS  ·  0 FILE UPLOADS  ·  0 TRACKERS</text>
+  </g>
+
+  <path d="M506 375H659" stroke="#8175FF" stroke-width="3" stroke-dasharray="12 14" class="flow"/>
+  <circle cx="584" cy="375" r="7" fill="#D9FF57" filter="url(#glow)" class="pulse"/>
+  <g transform="translate(518 354)" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="10" fill="#8983A5"><text>SHA-256 VERIFIED</text></g>
+
+  <g class="float">
+    <rect x="662" y="50" width="474" height="354" rx="24" fill="#131125" stroke="#8175FF" stroke-opacity=".6" stroke-width="2"/>
+    <rect x="662" y="50" width="474" height="48" rx="24" fill="#211E3B"/>
+    <rect x="662" y="79" width="474" height="19" fill="#211E3B"/>
+    <circle cx="688" cy="74" r="5" fill="#FF745E"/><circle cx="706" cy="74" r="5" fill="#F9CA55"/><circle cx="724" cy="74" r="5" fill="#74F7C0"/>
+    <rect x="755" y="64" width="300" height="21" rx="10" fill="#151329"/><text x="779" y="78" fill="#77718F" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="10">orbitdropapp.vercel.app</text>
+    <g transform="translate(696 124)" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">
+      <rect width="68" height="68" rx="17" fill="#17152E" stroke="#8175FF" stroke-width="2"/>
+      <circle cx="34" cy="34" r="20" stroke="#8175FF" stroke-width="7" stroke-dasharray="19 6" class="flow"/>
+      <path d="M34 25v19m-9-8 9 9 9-9" stroke="#D9FF57" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="86" y="27" fill="#F7F5FF" font-size="22" font-weight="800">Choose your orbit.</text>
+      <text x="86" y="52" fill="#9E98B8" font-size="12">VERSION 0.7.2 · RELEASE VERIFIED</text>
+      <rect y="92" width="196" height="82" rx="16" fill="#201D38" stroke="#8175FF" stroke-opacity=".5"/>
+      <text x="20" y="121" fill="#F7F5FF" font-size="14" font-weight="800">Download for macOS</text><text x="20" y="148" fill="#9E98B8" font-size="11">APPLE SILICON + INTEL</text>
+      <rect x="214" y="92" width="196" height="82" rx="16" fill="#201D38" stroke="#8175FF" stroke-opacity=".5"/>
+      <text x="234" y="121" fill="#F7F5FF" font-size="14" font-weight="800">Download for Windows</text><text x="234" y="148" fill="#9E98B8" font-size="11">WINDOWS 10 + 11</text>
+      <rect y="196" width="410" height="38" rx="12" fill="url(#lime)"/>
+      <text x="205" y="220" text-anchor="middle" fill="#11131B" font-size="12" font-weight="900">FILES STAY ON YOUR COMPUTER →</text>
+    </g>
+  </g>
+</svg>
