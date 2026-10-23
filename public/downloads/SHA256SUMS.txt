@@ -1,2 +1,3 @@
-2c9eb8ce29cb1c681f628af8d3a00776c01403a2e4cf50a4fef6132254860f2e  OrbitDrop-0.4.0-NATIVE-macOS-universal.zip
-e7f1f566372e8c8f57a88983c647b090077a9a8146d86b4f52a04cebc4d0a15f  OrbitDrop-0.4.0-NATIVE-Windows-x64.exe
+edab4816dd3d5c19d143f41891956bdb80b4eeb6810795a120106ac83362d09a  OrbitDrop-0.7.3-Windows-x64.exe
+796c6af43412d10452f0268dbf8cf4054a2d1f9dc1622f25dc375a1b4cf614d7  OrbitDrop-0.7.3-Windows-x64.zip
+9fe526b3b2414e19b8b83b13501fb573941a8bb3b7e1786a0aa52e09708dc762  OrbitDrop-0.7.3-macOS-universal.zip

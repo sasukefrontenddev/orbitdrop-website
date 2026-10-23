@@ -27,6 +27,8 @@ const actions = [
 ];
 
 const recentUpdates = [
+  { version: "0.7.3", label: "Finder typing restored", title: "Rename and search without losing a letter.", detail: "OrbitDrop now pauses its trigger capture while a Finder text field is active, so the configured letter works normally when renaming files, folders, or searching." },
+  { version: "0.7.3", label: "One update, one prompt", title: "Update alerts no longer multiply.", detail: "Overlapping checks collapse into one prompt, installs block duplicate checks, and OrbitDrop reopens the existing installation without launching extra copies." },
   { version: "0.7.2", label: "Your key stays yours", title: "Tap normally. Hold for OrbitDrop.", detail: "A quick trigger-key press is replayed as the original key. Only a deliberate quarter-second hold opens the wheel, and other apps are never intercepted." },
   { version: "0.7.1", label: "True key interception", title: "Finder keeps the file you selected.", detail: "OrbitDrop consumes your trigger key before Finder can jump to another filename. Key-down, repeats, and key-up are intercepted for the complete hold gesture." },
   { version: "0.7.1", label: "Press-any-key recorder", title: "Your keyboard. No dropdown.", detail: "Choose Record trigger key and press the physical key you want—letters, numbers, punctuation, arrows, modifiers, Space, and function keys are supported." },
